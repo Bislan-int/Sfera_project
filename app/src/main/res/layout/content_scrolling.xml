@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
+    app:layout_scrollFlags="scroll|enterAlways"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:paddingTop="56dp">
+
+        <FrameLayout
+            android:id="@+id/image_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/square_160"
+                android:layout_height="@dimen/square_160"
+                android:src="@drawable/image_main_profile"/>
+
+            <FrameLayout
+                android:layout_width="@dimen/square_48"
+                android:layout_height="@dimen/square_48"
+                android:background="@drawable/circle_image"
+                android:layout_gravity="bottom|left"
+                tools:ignore="RtlHardcoded">
+
+                <TextView
+                    android:id="@+id/tv_rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAppearance="@style/TextRatingStyle"
+                    android:text="@string/rating"
+                    android:background="@drawable/circle_elevation_overlay"
+                    android:gravity="center"
+                    android:textColor="@color/text_color"/>
+            </FrameLayout>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/name_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_sides_16"
+            android:layout_marginTop="@dimen/margin_top_name"
+            android:layout_marginEnd="@dimen/margin_sides_16"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="center"
+            android:text="@string/user_name"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/name_sp"
+            android:textAppearance="@style/TextNameStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_profile" />
+
+        <ImageView
+            android:id="@+id/ic_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_sides_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_languages"
+            app:srcCompat="@drawable/ic_language" />
+
+        <TextView
+            android:id="@+id/tv_languages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_sides_16"
+            android:layout_marginTop="24dp"
+            android:text="@string/languages"
+            android:textAppearance="@style/TextLanguageAndCityStyle"
+            android:textColor="@color/text_color"
+            app:layout_constraintStart_toEndOf="@+id/ic_language"
+            app:layout_constraintTop_toBottomOf="@+id/name_profile" />
+
+        <TextView
+            android:id="@+id/bt_choose_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_choose"
+            android:textAppearance="@style/ButtonChooseStyle"
+            android:layout_marginEnd="@dimen/margin_sides_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_languages" />
+
+        <ImageView
+            android:id="@+id/ic_map_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/ic_language"
+            app:layout_constraintTop_toTopOf="@+id/tv_city"
+            app:srcCompat="@drawable/ic_place" />
+
+        <TextView
+            android:id="@+id/tv_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_sides_16"
+            android:layout_marginTop="24dp"
+            android:text="@string/choose_city"
+            android:textAppearance="@style/TextLanguageAndCityStyle"
+            android:textColor="@color/text_color"
+            app:layout_constraintStart_toEndOf="@+id/ic_map_place"
+            app:layout_constraintTop_toBottomOf="@id/tv_languages" />
+
+        <TextView
+            android:id="@+id/bt_choose_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_choose"
+            android:textAppearance="@style/ButtonChooseStyle"
+            android:layout_marginEnd="@dimen/margin_sides_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_city" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_main_images"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="3:1"
+            android:layout_marginStart="@dimen/margin_sides_16"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="12dp"
+            android:orientation="horizontal"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_main_image"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_city"/>
+
+        <LinearLayout
+            android:id="@+id/contain_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_sides_16"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="@dimen/margin_sides_16"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_main_images">
+
+            <Button
+                android:id="@+id/bt_questionnaires"
+                style="@style/ButtonBorderedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/margin_4"
+                android:text="@string/bt_questionnaires" />
+
+            <Button
+                android:id="@+id/bt_people"
+                style="@style/ButtonBorderedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/margin_4"
+                android:text="@string/bt_people" />
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_about_me"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_sides_16"
+            android:layout_marginTop="@dimen/margin_4"
+            android:layout_marginEnd="@dimen/margin_sides_16"
+            android:hint="@string/hint_about_me"
+            app:hintTextAppearance="@style/TextAboutStyle"
+            android:textColorHint="@color/white_60"
+            app:boxStrokeColor="@color/white_60"
+            app:counterEnabled="true"
+            app:counterMaxLength="300"
+            app:counterTextAppearance="@style/TextCounterEditStyle"
+            app:counterTextColor="@color/white_60"
+            app:hintTextColor="@color/white_60"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contain_button"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background"
+                android:fontFamily="@font/inter"
+                android:inputType="textMultiLine"
+                android:textAppearance="@style/TextEditAboutStyle"
+                android:lineHeight="24dp"
+                android:maxLines="2"
+                android:paddingStart="0dp"
+                android:paddingEnd="0dp"
+                android:textColor="@color/text_color"
+                android:textColorLink="@color/white_60"
+                app:counterMaxLength="300"
+                tools:text="@string/plug_about" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_dream_and_get"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_sides_16"
+            android:layout_marginTop="20dp"
+            android:textAppearance="@style/TextDreamStyle"
+            android:text="@string/dream_and_get"
+            android:textColor="@color/text_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_about_me" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:theme="@style/SwitchStyle"
+            app:layout_constraintEnd_toEndOf="@+id/edt_about_me"
+            app:layout_constraintTop_toTopOf="@+id/tv_dream_and_get"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_wishes"
+            style="@style/ButtonBorderedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_sides_16"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="@dimen/margin_sides_16"
+            android:text="@string/bt_wishes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_dream_and_get" />
+
+        <TextView
+            android:id="@+id/tv_moments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_sides_16"
+            android:layout_marginTop="@dimen/margin_sides_16"
+            android:layout_marginEnd="@dimen/margin_sides_16"
+            android:textAppearance="@style/TextHeaderRecyclerStyle"
+            android:text="@string/moments"
+            android:textColor="@color/secondary_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bt_wishes" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_moments"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="2"
+            android:layout_marginStart="@dimen/margin_sides_16"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            tools:itemCount="6"
+            tools:listitem="@layout/item_moments_image"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_moments" />
+
+        <TextView
+            android:id="@+id/tv_chronicles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_sides_16"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="@dimen/margin_sides_16"
+            android:textAppearance="@style/TextHeaderRecyclerStyle"
+            android:text="@string/chronicles"
+            android:textColor="@color/secondary_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_moments"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintDimensionRatio="1:1"
+            android:layout_marginStart="@dimen/margin_sides_16"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="11dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_chronicles"
+            app:spanCount="3"
+            tools:itemCount="12"
+            tools:listitem="@layout/item_chronicles_image" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

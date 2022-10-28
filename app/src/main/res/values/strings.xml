@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Sfera Project</string>
+    <string name="user_name">Alice Peterson</string>
+    <string name="rating">4.7</string>
+    <string name="languages">Russian, English, German</string>
+    <string name="bt_choose">Choose</string>
+    <string name="choose_city">New York city, USA</string>
+    <string name="bt_questionnaires">Questionnaires</string>
+    <string name="bt_people">People</string>
+    <string name="hint_about_me">About me</string>
+    <string name="dream_and_get">Dream and get</string>
+    <string name="bt_wishes">Wishes</string>
+    <string name="moments">Moments</string>
+    <string name="chronicles">Chronicles</string>
+    <string name="plug_about">Жизнь будет гораздо проще и приятнее для каждого человека, если мы будем</string>
 </resources>
