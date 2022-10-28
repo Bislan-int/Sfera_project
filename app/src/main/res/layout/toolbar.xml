@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar android:id="@+id/toolbar1"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:background="@color/background"
+    app:title="ID 123 456 789"
+    app:titleTextAppearance="@style/TextIDStyle"
+    app:titleTextColor="@color/text_color"
+    app:navigationIcon="@drawable/ic_menu"
+    app:menu="@menu/top_app_bar"
+    app:layout_scrollFlags="scroll|enterAlways"
+    xmlns:app="http://schemas.android.com/apk/res-auto"/>
