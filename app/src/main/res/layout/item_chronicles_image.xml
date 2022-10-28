@@ -8,11 +8,10 @@
     android:layout_marginBottom="5dp">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imageView"
+        android:id="@+id/image_chronicles"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/img_chronicles1"
-
         app:shapeAppearanceOverlay="@style/CornerImageStyle"
         app:layout_constraintDimensionRatio="H,1:1"
         android:scaleType="centerCrop"

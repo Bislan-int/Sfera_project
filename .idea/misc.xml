@@ -3,10 +3,43 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/layout/activity_main.xml" value="0.25025641025641027" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+=======
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/drawable/button_stroke.xml" value="0.1445" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/drawable/circle_elevation_overlay.xml" value="0.1445" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/drawable/circle_image.xml" value="0.1445" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/drawable/ic_language.xml" value="0.1445" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/drawable/ic_menu.xml" value="0.1445" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/drawable/ic_place.xml" value="0.1445" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/drawable/ic_share.xml" value="0.1445" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/drawable/image_corner_radius.xml" value="0.162" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/font/inter.xml" value="0.28" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/font/inter_medium.xml" value="0.28" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/layout/app_bar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/layout/button.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/layout/content_scrolling.xml" value="0.264" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/layout/item_chronicles_image.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/layout/item_image.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/layout/item_main_image.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/layout/item_main_image1.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/layout/item_moments_image.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/layout/toolbar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/79894/AndroidStudioProjects/SferaProject/app/src/main/res/menu/top_app_bar.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+>>>>>>> origin/master
 </project>
