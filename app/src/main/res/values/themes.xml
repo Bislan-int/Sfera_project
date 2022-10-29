@@ -25,6 +25,11 @@
         <item name="android:lineSpacingExtra"> -1sp</item>
     </style>
 
+    <style name="roundImage">
+        <item name="cornerSize">50%</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+
     <style name="CornerImageStyle" parent="">
         <item name="cornerSize">4dp</item>
     </style>

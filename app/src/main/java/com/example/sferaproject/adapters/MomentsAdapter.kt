@@ -1,18 +1,20 @@
-package com.example.sferaproject
+package com.example.sferaproject.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.sferaproject.model.ImageModel
+import com.example.sferaproject.R
 import com.example.sferaproject.databinding.ItemMomentsImageBinding
 
-class MomentsAdapter(private val listImages: Array<DataImage>) : RecyclerView.Adapter<MomentsAdapter.MomentsHolder>() {
+class MomentsAdapter(private val listImages: Array<ImageModel>) : RecyclerView.Adapter<MomentsAdapter.MomentsHolder>() {
 
 
     class MomentsHolder(item: View) : RecyclerView.ViewHolder(item) {
         private val binding = ItemMomentsImageBinding.bind(item)
-        fun bind(item: DataImage) {
+        fun bind(item: ImageModel) {
             Glide
                 .with(itemView.context)
                 .load(item.image)

@@ -1,18 +1,20 @@
-package com.example.sferaproject
+package com.example.sferaproject.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.sferaproject.model.ImageModel
+import com.example.sferaproject.R
 import com.example.sferaproject.databinding.ItemChroniclesImageBinding
 
-class ChroniclesAdapter(private val listImages: Array<DataImage>) : RecyclerView.Adapter<ChroniclesAdapter.ChroniclesHolder>() {
+class ChroniclesAdapter(private val listImages: Array<ImageModel>) : RecyclerView.Adapter<ChroniclesAdapter.ChroniclesHolder>() {
 
 
     class ChroniclesHolder(item: View) : RecyclerView.ViewHolder(item) {
         private val binding = ItemChroniclesImageBinding.bind(item)
-        fun bind(item: DataImage) {
+        fun bind(item: ImageModel) {
             Glide
                 .with(itemView.context)
                 .load(item.image)
