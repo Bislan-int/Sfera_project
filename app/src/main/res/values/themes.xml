@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.SferaProject" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/secondary_color</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/text_color</item>
         <!-- Secondary brand color. -->
@@ -41,7 +41,7 @@
         <item name="android:colorForeground">@android:color/darker_gray</item>
     </style>
 
-    <style name="TextIDStyle">
+    <style name="TitleAppBar">
         <item name="android:lineSpacingExtra">2sp</item>
         <item name="android:translationY">-1.11sp</item>
         <item name="android:textSize">18sp</item>

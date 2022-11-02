@@ -5,7 +5,7 @@
     android:layout_height="56dp"
     android:background="@color/background"
     app:title="ID 123 456 789"
-    app:titleTextAppearance="@style/TextIDStyle"
+    app:titleTextAppearance="@style/TitleAppBar"
     app:titleTextColor="@color/text_color"
     app:navigationIcon="@drawable/ic_menu"
     app:menu="@menu/top_app_bar"

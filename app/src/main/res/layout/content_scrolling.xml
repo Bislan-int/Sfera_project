@@ -6,14 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_alignParentTop="true"
+    android:overScrollMode="never"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     app:layout_scrollFlags="scroll|enterAlways"
-    tools:context=".MainActivity">
+    tools:context=".view.activity.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background"
-        android:paddingTop="56dp">
+        android:background="@color/background">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image_header"
@@ -38,14 +39,6 @@
             android:textSize="24sp"
             android:gravity="center"
             app:shapeAppearanceOverlay="@style/roundImage"/>
-
-        <View
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:backgroundTint="@color/elevation_overlay"
-            app:layout_constraintBottom_toBottomOf="@+id/image_header"
-            app:layout_constraintStart_toStartOf="@+id/image_header"
-            android:background="@drawable/circle_image" />
 
         <TextView
             android:id="@+id/name_profile"
@@ -154,12 +147,12 @@
             android:layout_marginStart="@dimen/margin_sides_16"
             android:layout_marginTop="18dp"
             android:layout_marginEnd="@dimen/margin_4"
-            app:layout_constraintEnd_toStartOf="@id/bt_people1"
+            app:layout_constraintEnd_toStartOf="@id/bt_people"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rv_main_images"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt_people1"
+            android:id="@+id/bt_people"
             style="@style/ButtonBorderedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -172,7 +165,7 @@
             app:layout_constraintTop_toBottomOf="@+id/rv_main_images"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edt_about_me"
+            android:id="@+id/input_layout_about_me"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_sides_16"
@@ -181,18 +174,19 @@
             android:hint="@string/hint_about_me"
             app:hintTextAppearance="@style/TextAboutStyle"
             android:textColorHint="@color/white_60"
-            app:boxStrokeColor="@color/white_60"
+            app:boxStrokeColor="@color/secondary_color"
             app:counterEnabled="true"
             app:counterMaxLength="300"
             app:counterTextAppearance="@style/TextCounterEditStyle"
             app:counterTextColor="@color/white_60"
-            app:hintTextColor="@color/white_60"
+            app:hintTextColor="@color/secondary_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bt_questionnaires"
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ed_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/background"
@@ -220,7 +214,7 @@
             android:text="@string/dream_and_get"
             android:textColor="@color/text_color"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edt_about_me" />
+            app:layout_constraintTop_toBottomOf="@id/input_layout_about_me" />
 
         <Switch
             android:id="@+id/switch1"
@@ -229,7 +223,7 @@
             android:checked="true"
             tools:checked="true"
             android:theme="@style/SwitchStyle"
-            app:layout_constraintEnd_toEndOf="@+id/edt_about_me"
+            app:layout_constraintEnd_toEndOf="@+id/input_layout_about_me"
             app:layout_constraintTop_toTopOf="@+id/tv_dream_and_get"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
