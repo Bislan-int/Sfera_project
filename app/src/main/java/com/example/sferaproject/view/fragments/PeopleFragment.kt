@@ -1,23 +1,39 @@
 package com.example.sferaproject.view.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sferaproject.R
 import com.example.sferaproject.databinding.FragmentPeopleBinding
-import com.example.sferaproject.model.UserModel
-import com.example.sferaproject.view.adapters.PeopleAdapter
-import com.github.javafaker.Faker
+import com.example.sferaproject.view.adapters.ViewPagerAdapter
+import com.example.sferaproject.viewmodel.PeopleViewModel
+import com.google.android.material.tabs.TabLayoutMediator
 
 class PeopleFragment : Fragment() {
     private lateinit var binding: FragmentPeopleBinding
-    private lateinit var adapterUser: PeopleAdapter
+    private val mViewModel: PeopleViewModel by viewModels()
+
+    private val fragmentList = listOf(
+        SubscribersFragment.newInstance(),
+        SubscriptionsFragment.newInstance(),
+        MutuallyFragment.newInstance()
+    )
+    private val titleList = listOf(
+        "SUBSCRIBERS",
+        "SUBSCRIPTIONS",
+        "MUTUALLY"
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,14 +41,9 @@ class PeopleFragment : Fragment() {
     ): View {
         binding = FragmentPeopleBinding.inflate(inflater, container, false)
         initToolBar()
-        initRecyclerView()
-        initAdapterClickListener()
+        initViewPagerAdapter()
+        search()
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        adapterUser.personList = addUsers()
     }
 
     private fun initToolBar() {
@@ -42,55 +53,29 @@ class PeopleFragment : Fragment() {
         binding.toolbarPeople.title = "People"
     }
 
-    private fun addUsers(): List<UserModel> {
-        val faker = Faker.instance()
-        return (1..40).map {
-            UserModel(
-                image = IMAGES[it % IMAGES.size],
-                name = faker.name().fullName(),
-                id = it,
-                isSubscribe = false
-            )
-        }
+    private fun initViewPagerAdapter() {
+        val adapter = ViewPagerAdapter(activity as FragmentActivity, fragmentList)
+        binding.viewPager.adapter = adapter
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) {
+                tab, positions -> tab.text = titleList[positions]
+        }.attach()
     }
 
-    private fun initRecyclerView() {
-        val recyclerView = binding.rvPeople
-        val layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.layoutManager = layoutManager
-        adapterUser = PeopleAdapter(requireContext())
-        recyclerView.adapter = adapterUser
-        val itemAnimator = binding.rvPeople.itemAnimator
-        if (itemAnimator is DefaultItemAnimator)
-            itemAnimator.supportsChangeAnimations = false
-    }
+    private fun search() {
 
-    private fun initAdapterClickListener() {
-        adapterUser.setOnItemClickListener { position ->
-            val list = adapterUser.personList.toMutableList()
-             val user = list[position]
-            list[position] = UserModel(
-                image = user.image,
-                name = user.name,
-                id = user.id,
-                isSubscribe = !user.isSubscribe
-            )
-            adapterUser.personList = list
-        }
-    }
+        val searchView = binding.toolbarPeople.menu.findItem(R.id.search).actionView as SearchView
+        searchView.queryHint = context?.getString(R.string.search)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
-    companion object {
-        private val IMAGES = mutableListOf(
-            "https://meragor.com/files/styles//220_220_bottom_wm/_5_5.jpg",
-            "https://meragor.com/files/styles//220_220_bottom_wm/2_4.jpg",
-            "https://meragor.com/files/styles//220_220_bottom_wm/1_7.jpg",
-            "https://meragor.com/files/styles//220_220_bottom_wm/6_2.jpg",
-            "https://meragor.com/files/styles//220_220_bottom_wm/_1_27.jpg",
-            "https://meragor.com/files/styles//220_220_bottom_wm/5_15.jpg",
-            "https://meragor.com/files/styles//220_220_bottom_wm/10_2.jpg",
-            "https://meragor.com/files/styles//220_220_bottom_wm/6_0.jpg",
-            "https://meragor.com/files/styles//220_220_bottom_wm/5_3.jpg",
-            "https://meragor.com/files/styles//220_220_bottom_wm/1_2_0.jpg"
-        )
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                mViewModel.text.value = newText
+                return true
+            }
+
+        })
     }
 }

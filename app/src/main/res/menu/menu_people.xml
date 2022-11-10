@@ -2,8 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/share"
+        android:id="@+id/search"
         android:icon="@drawable/ic_search"
         android:title="search"
-        app:showAsAction="ifRoom"/>
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView"/>
 </menu>
