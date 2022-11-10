@@ -38,7 +38,7 @@
         android:id="@+id/subscribe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Unsubscribe"
+        android:text="Subscribe"
         android:lineSpacingExtra="1sp"
         android:translationY="-0.53sp"
         android:letterSpacing="-0.02"
